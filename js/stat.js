@@ -11,14 +11,23 @@ var Stat = (function() {
 	function initMetrika() {
 		if(typeof yaCounter != 'undefined' && window[yaCounter]) return;
 		// поиск счетчика Метрики на странице
+		yaCounter = false;
 		if(typeof Ya != 'undefined') {
-			var cntrs = Ya.Metrika.counters();
+			var cntrs;
+			if(typeof Ya.Metrika != 'undefined') {
+				cntrs = Ya.Metrika.counters()
+			}
+			else if(typeof Ya.Metrika2 != 'undefined') {
+				cntrs = Ya.Metrika2.counters();
+			}
+			else {
+				return;
+			}
 			if(typeof cntrs[0] != 'undefined') {
 				yaCounter = 'yaCounter'+cntrs[0].id;
 				if(window[yaCounter]) return;
 			}
 		}
-		yaCounter = false;
 	}
 	return {
 		send: function($o) {
