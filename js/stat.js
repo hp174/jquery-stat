@@ -107,6 +107,13 @@ var Stat = (function() {
 				_c("Запрос ga('send', '" + JSON.stringify(pars) + "') не отправлен. Аналитика не найдена на сайте");
 			}
 		},
+		/*
+		* Отправка данных в Google.Analitics (вариант с callback)
+		* @raram eventCategory
+		* @raram eventAction
+		* @raram eventLabel
+		* @raram eventLabel
+		*/
 		ga2 : function(eventCategory, eventAction, eventLabel, eventValue) {
 			var pars = {}, _l;
 			if(!eventCategory) eventCategory = '';
