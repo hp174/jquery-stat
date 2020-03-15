@@ -136,6 +136,11 @@ var Stat = (function() {
 			if(typeof fbq == 'function') fbq(track, Lead);//Facebook Pixel
 			else _c("Запрос fbq("+ track+", "+Lead + ") не отправлен. Facebook Pixel не найден на сайте");
 		},
+		/*
+		* Отправка данных в Яндекс.Мметрику
+		* @raram goal
+		* @raram params
+		*/
 		reachGoal : function(goal, params) {
 			initMetrika();
 			if(!params) params = {};
