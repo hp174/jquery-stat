@@ -132,7 +132,12 @@ var Stat = (function() {
 				_c("Запрос ga("+ _l + ") не отправлен. Аналитика не найдена на сайте");
 			}
 		},
-		fbq : function(track, Lead) {
+		/*
+		* Отправка данных в Facebook Pixel
+		* @raram track
+		* @raram track
+		*/
+		fbq : function(track, track) {
 			if(typeof fbq == 'function') fbq(track, Lead);//Facebook Pixel
 			else _c("Запрос fbq("+ track+", "+Lead + ") не отправлен. Facebook Pixel не найден на сайте");
 		},
