@@ -83,7 +83,14 @@ var Stat = (function() {
 				Stat.dataLayer(e);
 			}
 		},
-		ga : function(eventCategory, eventAction, eventLabel, eventValue) {
+		/*
+		* Отправка данных в Google.Analitics
+		* @raram eventCategory
+		* @raram eventAction
+		* @raram eventLabel
+		* @raram eventLabel
+		*/
+		ga : function(eventCategory, eventAction, eventLabel, eventLabel) {
 			var pars = {hitType: 'event'};
 			pars.hitCallback = function () {
 				_c("Запрос ga('send', '" + JSON.stringify(pars) + "')  успешно отправлен");
