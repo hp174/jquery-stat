@@ -2,13 +2,16 @@
 	stat.js (с) homepictures.ru, 2017 - 2018
 */ 
 var Stat = (function() {
-	function _c(d) {
+	function _c(d)
+	{
 		if(console) console.log(d);
 	}
-	function _cbReachGoal (){
+	function _cbReachGoal ()
+	{
 		_c('Запрос '+yaCounter+'.reachGoal('+this.goal+',' + JSON.stringify(this.params) + ') в Метрику успешно отправлен');
 	}
-	function initMetrika() {
+	function initMetrika()
+	{
 		if(typeof yaCounter != 'undefined' && window[yaCounter]) return;
 		// поиск счетчика Метрики на странице
 		yaCounter = false;
@@ -30,11 +33,12 @@ var Stat = (function() {
 		}
 	}
 	return {
-		/*
-		* Функция рассылки целей по системам статистики 
-		* @param jquery объект
-		*/
-		send: function($o) {
+		/**
+		 * Функция рассылки целей по системам статистики 
+		 * @param jquery объект
+		 */
+		send: function($o)
+		{
 			var i, v, goal, t, j, e, gs;
 			gs = ['goal-common', 'goal'];
 			for(j = 0; j < gs.length; j++) {
@@ -87,14 +91,15 @@ var Stat = (function() {
 				Stat.dataLayer(e);
 			}
 		},
-		/*
-		* Отправка данных в Google.Analitics
-		* @raram eventCategory
-		* @raram eventAction
-		* @raram eventLabel
-		* @raram eventLabel
-		*/
-		ga : function(eventCategory, eventAction, eventLabel, eventLabel) {
+		/**
+		 * Отправка данных в Google.Analitics
+		 * @raram eventCategory
+		 * @raram eventAction
+		 * @raram eventLabel
+		 * @raram eventLabel
+		 */
+		ga: function(eventCategory, eventAction, eventLabel, eventLabel)
+		{
 			var pars = {hitType: 'event'};
 			pars.hitCallback = function () {
 				_c("Запрос ga('send', '" + JSON.stringify(pars) + "')  успешно отправлен");
@@ -111,14 +116,15 @@ var Stat = (function() {
 				_c("Запрос ga('send', '" + JSON.stringify(pars) + "') не отправлен. Аналитика не найдена на сайте");
 			}
 		},
-		/*
-		* Отправка данных в Google.Analitics (вариант с callback)
-		* @raram eventCategory
-		* @raram eventAction
-		* @raram eventLabel
-		* @raram eventLabel
-		*/
-		ga2 : function(eventCategory, eventAction, eventLabel, eventValue) {
+		/**
+		 * Отправка данных в Google.Analitics (вариант с callback)
+		 * @raram eventCategory
+		 * @raram eventAction
+		 * @raram eventLabel
+		 * @raram eventLabel
+		 */
+		ga2: function(eventCategory, eventAction, eventLabel, eventValue)
+		{
 			var pars = {}, _l;
 			if(!eventCategory) eventCategory = '';
 			if(!eventAction) eventAction = '';
@@ -136,21 +142,23 @@ var Stat = (function() {
 				_c("Запрос ga("+ _l + ") не отправлен. Аналитика не найдена на сайте");
 			}
 		},
-		/*
-		* Отправка данных в Facebook Pixel
-		* @raram track
-		* @raram track
-		*/
-		fbq : function(track, track) {
+		/**
+		 * Отправка данных в Facebook Pixel
+		 * @raram track
+		 * @raram track
+		 */
+		fbq: function(track, track)
+		{
 			if(typeof fbq == 'function') fbq(track, Lead);//Facebook Pixel
 			else _c("Запрос fbq("+ track+", "+Lead + ") не отправлен. Facebook Pixel не найден на сайте");
 		},
-		/*
-		* Отправка данных в Яндекс.Метрику
-		* @raram goal
-		* @raram params
-		*/
-		reachGoal : function(goal, params) {
+		/**
+		 * Отправка данных в Яндекс.Метрику
+		 * @raram goal
+		 * @raram params
+		 */
+		reachGoal: function(goal, params)
+		{
 			initMetrika();
 			if(!params) params = {};
 			if(yaCounter !== false) {
@@ -161,15 +169,17 @@ var Stat = (function() {
 				_c('Запрос reachGoal('+goal+',' + JSON.stringify(params) +') не отправлен. Метрика не найдена на сайте');
 			}
 		},
-		/*
-		* Отправка данных в Roistat
-		* @raram goal
-		*/
-		roistat: function(goal) {
+		/**
+		 * Отправка данных в Roistat
+		 * @raram goal
+		 */
+		roistat: function(goal)
+		{
 			if(typeof roistat != 'undefined')
 				roistat.event.send(goal);
 		},
-		dataLayer: function(e) {
+		dataLayer: function(e)
+		{
 			if(typeof dataLayer != 'undefined') {
 				dataLayer.push(e);
 				_c("Запрос dataLayer.push("+ JSON.stringify(e) + ") отправлен");
