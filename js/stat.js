@@ -2,7 +2,7 @@
 	stat.js (с) homepictures.ru, 2017 - 2018
 */ 
 var Stat = (function() {
-	 function _c(d) {
+	function _c(d) {
 		if(console) console.log(d);
 	}
 	function _cbReachGoal (){
@@ -30,6 +30,10 @@ var Stat = (function() {
 		}
 	}
 	return {
+		/*
+		* Функция рассылки целей по системам статистики 
+		* @param jquery объект
+		*/
 		send: function($o) {
 			var i, v, goal, t, j, e, gs;
 			gs = ['goal-common', 'goal'];
@@ -157,6 +161,10 @@ var Stat = (function() {
 				_c('Запрос reachGoal('+goal+',' + JSON.stringify(params) +') не отправлен. Метрика не найдена на сайте');
 			}
 		},
+		/*
+		* Отправка данных в Roistat
+		* @raram goal
+		*/
 		roistat: function(goal) {
 			if(typeof roistat != 'undefined')
 				roistat.event.send(goal);
