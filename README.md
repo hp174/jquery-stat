@@ -54,7 +54,7 @@ yaCounter - ID счетчика, можно задать через `window.yaCo
 		Stat.send($(this));
 	});
 
-В результате будут отправлены цели в Яндекс Метрику ("yaGoal") и в Гугл Аналитику (с параметрами `eventCategory,eventAction,eventLabel,eventValue`).
+В результате будут отправлены цели в Яндекс Метрику ("yaGoal") и в Гугл Аналитику (с параметрами `eventCategory, eventAction, eventLabel, eventValue`).
 
 Результаты отработки методов пишутся в консоль браузера, которую можно посмотреть в режиме отладки.
 
